@@ -1,0 +1,12 @@
+Build Date: 2026-04-05 02:57:12 UTC
+Build Type: release
+Commit SHA: 7bf098bf99fbdd9f7026f12a8c11ca8d3a396f17
+Commit Message: Add GitHub Actions workflow for building and deploying native library
+
+- Manual workflow with debug/release build options
+- Multi-threaded build using all CPU cores
+- Automatic deployment to RedZONERROR/GClientSo repository
+- Build artifacts saved for 30 days
+- Includes setup guide and documentation
+Repository: RedZONERROR/GameClientSocket
+Workflow Run: 1
