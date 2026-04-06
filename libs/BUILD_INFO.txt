@@ -1,6 +1,26 @@
-Build Date: 2026-04-06 16:52:15 UTC
+Build Date: 2026-04-06 19:11:18 UTC
 Build Type: release
-Commit SHA: 8d70e4d372d8661341f25458f23d6e63d09939bb
-Commit Message: Improve aimbot targeting: FOV-based + closest to crosshair selection
+Commit SHA: de830bedc08fdafb3dfaf64497e58596b03aa3b8
+Commit Message: Fix GetAimTarget: Follow proper filtering flow and use correct FOV logic
+
+Issues Fixed:
+1. Wrong filter order - now follows: distance → visibility → knocked/bot → W2S → bounds → FOV → closest
+2. FOV function renamed to isInsideFOVAim() to match example
+3. FOV radius calculation: sock_aim_fov * 0.5f (half of FOV size)
+4. Changed from float to int for screen coordinates in FOV check
+5. Use FVector for middlePoint instead of separate X/Y floats
+6. Use FVector2D::Distance() for screen distance calculation
+7. Changed width from 0.45f to 0.20f (narrower, more accurate)
+8. Variable naming: max instead of minScreenDistance (matches example)
+9. Added Target variable for clarity
+10. Proper flow: filter first, then project, then check FOV, then select closest
+
+Logic Flow (matches example):
+- Filter by world distance (< max_distance)
+- Check team, dead, knocked, bot, visibility
+- Project to screen (W2S)
+- Check screen bounds
+- Check FOV circle (if enabled)
+- Select closest to crosshair (minimum screen distance)
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 2
+Workflow Run: 3
