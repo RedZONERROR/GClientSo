@@ -1,26 +1,21 @@
-Build Date: 2026-04-06 19:11:18 UTC
+Build Date: 2026-04-07 10:27:39 UTC
 Build Type: release
-Commit SHA: de830bedc08fdafb3dfaf64497e58596b03aa3b8
-Commit Message: Fix GetAimTarget: Follow proper filtering flow and use correct FOV logic
+Commit SHA: 10cb2b4c35fa133d5cd62bff5955d66457ba4eeb
+Commit Message: Fix aimbot targeting and add native window dimension caching
 
-Issues Fixed:
-1. Wrong filter order - now follows: distance → visibility → knocked/bot → W2S → bounds → FOV → closest
-2. FOV function renamed to isInsideFOVAim() to match example
-3. FOV radius calculation: sock_aim_fov * 0.5f (half of FOV size)
-4. Changed from float to int for screen coordinates in FOV check
-5. Use FVector for middlePoint instead of separate X/Y floats
-6. Use FVector2D::Distance() for screen distance calculation
-7. Changed width from 0.45f to 0.20f (narrower, more accurate)
-8. Variable naming: max instead of minScreenDistance (matches example)
-9. Added Target variable for clarity
-10. Proper flow: filter first, then project, then check FOV, then select closest
+1. Fix middlePoint calculation in GetAimTarget
+   - Changed from HeadPosSC.X + (width/2) to HeadPosSC.X (correct center)
+   - Y: HeadPosSC.Y + (height/2.0f) (halfway between head and root)
+   - More accurate targeting to player center
 
-Logic Flow (matches example):
-- Filter by world distance (< max_distance)
-- Check team, dead, knocked, bot, visibility
-- Project to screen (W2S)
-- Check screen bounds
-- Check FOV circle (if enabled)
-- Select closest to crosshair (minimum screen distance)
+2. Add native window dimension caching
+   - Added native_window_width/height global variables in include.h
+   - Save dimensions in main.cpp after getting g_App->window
+   - Updated GetGameScreenDimensions() with 3-tier priority system
+
+3. Fix target_screen_pos for rendering
+   - Convert world 3D coords to screen 2D coords using ProjectWorldToScreen()
+   - Set Z=1.0f when projection succeeds, Z=0.0f when fails
+   - Allows proper target indicator rendering in overlay
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 3
+Workflow Run: 4
