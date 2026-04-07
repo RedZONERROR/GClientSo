@@ -1,21 +1,11 @@
-Build Date: 2026-04-07 10:27:39 UTC
+Build Date: 2026-04-07 14:05:13 UTC
 Build Type: release
-Commit SHA: 10cb2b4c35fa133d5cd62bff5955d66457ba4eeb
-Commit Message: Fix aimbot targeting and add native window dimension caching
+Commit SHA: abfcc1584e9d395c9e9e30ca5f6baac5d1d7e6cf
+Commit Message: Fix aimbot target indicator position and FOV filtering
 
-1. Fix middlePoint calculation in GetAimTarget
-   - Changed from HeadPosSC.X + (width/2) to HeadPosSC.X (correct center)
-   - Y: HeadPosSC.Y + (height/2.0f) (halfway between head and root)
-   - More accurate targeting to player center
-
-2. Add native window dimension caching
-   - Added native_window_width/height global variables in include.h
-   - Save dimensions in main.cpp after getting g_App->window
-   - Updated GetGameScreenDimensions() with 3-tier priority system
-
-3. Fix target_screen_pos for rendering
-   - Convert world 3D coords to screen 2D coords using ProjectWorldToScreen()
-   - Set Z=1.0f when projection succeeds, Z=0.0f when fails
-   - Allows proper target indicator rendering in overlay
+- Fixed target screen position to use correct bone (Head/Chest) matching aimbot target
+- Updated player box width from 0.20f to 0.65f for better FOV detection
+- Clarified FOV filter behavior: ON = target inside FOV only, OFF = target anywhere
+- Target indicator now appears at actual aim position instead of always at head
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 4
+Workflow Run: 5
