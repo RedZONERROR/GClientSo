@@ -104,7 +104,7 @@ jobs:
       - name: Checkout public repository (self)
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DEPLOY_TOKEN }}
           path: deploy-repo
       
       - name: Deploy to public repository
