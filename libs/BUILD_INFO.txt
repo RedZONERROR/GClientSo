@@ -1,11 +1,11 @@
-Build Date: 2026-04-07 14:05:13 UTC
+Build Date: 2026-04-07 20:33:41 UTC
 Build Type: release
-Commit SHA: abfcc1584e9d395c9e9e30ca5f6baac5d1d7e6cf
-Commit Message: Fix aimbot target indicator position and FOV filtering
+Commit SHA: 960da2eecddacbdf6191d2022a2f43d716227f8f
+Commit Message: Fix GetAimTarget middle point calculation
 
-- Fixed target screen position to use correct bone (Head/Chest) matching aimbot target
-- Updated player box width from 0.20f to 0.65f for better FOV detection
-- Clarified FOV filter behavior: ON = target inside FOV only, OFF = target anywhere
-- Target indicator now appears at actual aim position instead of always at head
+- Fixed Y coordinate calculation for middle point
+- Changed from HeadPosSC.Y + (height/2) to RootSc.Y - (height/2)
+- Now correctly calculates center of player body for FOV checking
+- Screen Y increases downward, so subtract from root (bottom) to get middle
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 5
+Workflow Run: 6
