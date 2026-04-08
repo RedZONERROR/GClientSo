@@ -1,18 +1,11 @@
-Build Date: 2026-04-08 15:20:38 UTC
+Build Date: 2026-04-08 16:36:38 UTC
 Build Type: release
-Commit SHA: 5258380784cd9410fcdd41ae8933832f6a64162f
-Commit Message: Fix: Remove android_native_app_glue dependency and g_App usage
+Commit SHA: 22c69fae6776006ef58322e09f60ed990b1d7c45
+Commit Message: Fix: Aimbot middlePoint calculation for closest target
 
-- Removed android_native_app_glue.c from Android.mk build
-- Removed android_native_app_glue.h include from Aimbot.h
-- Simplified GetGameScreenDimensions to use cached values and socket data
-- Commented out g_App extraction code in main.cpp (not needed)
-- Native window dimensions now received via socket from overlay app
-
-Fixes:
-- 'undefined symbol: android_main' linker error
-- 'incomplete type android_app' compilation errors
-
-Build verified: SUCCESS
+- Changed middlePoint from HeadSc.X + (width/2) to HeadSc.X (center X)
+- Changed middlePoint Y from HeadSc.Y + (height/2) to (HeadSc.Y + RootSc.Y)/2 (true center)
+- Now correctly targets closest enemy to crosshair when FOV is disabled
+- Removed commented old calculation
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 8
+Workflow Run: 9
