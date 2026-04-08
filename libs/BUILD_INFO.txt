@@ -1,11 +1,18 @@
-Build Date: 2026-04-07 20:33:41 UTC
+Build Date: 2026-04-08 15:20:38 UTC
 Build Type: release
-Commit SHA: 960da2eecddacbdf6191d2022a2f43d716227f8f
-Commit Message: Fix GetAimTarget middle point calculation
+Commit SHA: 5258380784cd9410fcdd41ae8933832f6a64162f
+Commit Message: Fix: Remove android_native_app_glue dependency and g_App usage
 
-- Fixed Y coordinate calculation for middle point
-- Changed from HeadPosSC.Y + (height/2) to RootSc.Y - (height/2)
-- Now correctly calculates center of player body for FOV checking
-- Screen Y increases downward, so subtract from root (bottom) to get middle
+- Removed android_native_app_glue.c from Android.mk build
+- Removed android_native_app_glue.h include from Aimbot.h
+- Simplified GetGameScreenDimensions to use cached values and socket data
+- Commented out g_App extraction code in main.cpp (not needed)
+- Native window dimensions now received via socket from overlay app
+
+Fixes:
+- 'undefined symbol: android_main' linker error
+- 'incomplete type android_app' compilation errors
+
+Build verified: SUCCESS
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 6
+Workflow Run: 8
