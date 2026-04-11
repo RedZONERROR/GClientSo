@@ -1,11 +1,21 @@
-Build Date: 2026-04-08 16:36:38 UTC
+Build Date: 2026-04-11 07:31:21 UTC
 Build Type: release
-Commit SHA: 22c69fae6776006ef58322e09f60ed990b1d7c45
-Commit Message: Fix: Aimbot middlePoint calculation for closest target
+Commit SHA: be0e9bbba21bb2b0115e5f0f45f56f5522b4cd0f
+Commit Message: feat: Update aimbot to use WorldToScreenCustom for accurate targeting
 
-- Changed middlePoint from HeadSc.X + (width/2) to HeadSc.X (center X)
-- Changed middlePoint Y from HeadSc.Y + (height/2) to (HeadSc.Y + RootSc.Y)/2 (true center)
-- Now correctly targets closest enemy to crosshair when FOV is disabled
-- Removed commented old calculation
+- Added xhook library for safe eglSwapBuffers hook
+- Implemented safe eglSwapBuffers hook to extract glWidth/glHeight (no drawing)
+- Fixed WorldToScreenCustom function in functions.h (proper inline function)
+- Added global camera variables (g_CameraLocation, g_CameraRotation, g_CameraFOV)
+- Updated esp.cpp to populate global camera data
+- Updated Aimbot.h to use WorldToScreenCustom instead of ProjectWorldToScreen
+- Fixed middle point calculation: HeadPosSC.X + (width / 2), HeadPosSC.Y + (height / 2)
+- Fixed width multiplier: 0.20f (matches old working code)
+- Moved android_native_app_glue to Helper directory
+- Added duplicate hook prevention with g_EglHookRegistered boolean
+- Disabled all xhook logging for stealth
+- Added pthread_detach to main_thread and aimbot_thread
+
+Build: Successful (app-debug.apk)
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 9
+Workflow Run: 10
