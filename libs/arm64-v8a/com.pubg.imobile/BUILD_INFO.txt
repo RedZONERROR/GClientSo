@@ -1,0 +1,6 @@
+Build Date: 2026-04-14 08:07:43 UTC
+Build Type: release
+Commit SHA: 8b84b3db6cd344d9351e2791900fed07098e07c0
+Commit Message: Move BUILD_INFO.txt to package directory
+Repository: RedZONERROR/GameClientSocket
+Workflow Run: 11
