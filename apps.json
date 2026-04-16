@@ -1,0 +1,14 @@
+{
+  "cheats": [
+    {
+      "id": 1,
+      "name": "Bgmi",
+      "packageName": "com.pubg.imobile",
+      "status": "UNDETECTED",
+      "version": "1.5.2",
+      "lastUpdate": "3h ago",
+      "abiVersion": "arm64-v8a",
+      "obbUrl": "https://example.com/main.20925.com.pubg.imobile.obb"
+    }
+  ]
+}
