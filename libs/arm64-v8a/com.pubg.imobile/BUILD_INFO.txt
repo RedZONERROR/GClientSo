@@ -1,6 +1,13 @@
-Build Date: 2026-04-18 17:11:09 UTC
+Build Date: 2026-04-18 20:34:26 UTC
 Build Type: release
-Commit SHA: e596226d4ab7a68c8e7831f4c13905836bddc2b1
-Commit Message: Revert per-bone visibility system, fix xhook PAGE_SIZE for newer NDK, update Gradle/AGP
+Commit SHA: c1255e7f8312d8b87fbab62d13bac9e96a027797
+Commit Message: Add grenade/item state filtering and minimum distance checks
+
+- Skip exploded grenades (IsServerAlreadyExplodedCpp check)
+- Skip picked up items (bHasBeenPickedUp check)
+- Skip grenades being cooked (SpawnSeconds < 0)
+- Skip grenades at invalid world positions (0,0,0)
+- Add minimum distance filters: vehicles/items 1.5m, airdrops/deadboxes 2.0m
+- Prevents showing stale actors and reduces ESP clutter near player
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 15
+Workflow Run: 16
