@@ -1,55 +1,6 @@
-Build Date: 2026-04-18 10:02:43 UTC
+Build Date: 2026-04-18 14:24:57 UTC
 Build Type: release
-Commit SHA: 6ba8ae57754d501aeb8425f87506d7a4fb5c5a52
-Commit Message: Implement per-bone visibility system with adaptive quality and smart aimbot
-
-Major Features:
-- Added per-bone visibility system with 16 individual bone visibility flags
-- Implemented smart bone aimbot that targets highest visible bone automatically
-- Added adaptive quality system that adjusts based on player count (18 threshold)
-- Optimized aimbot to calculate bone position once and reuse
-
-Per-Bone Visibility (ESP):
-- Added 16 boolean visibility flags to _Bones structure in clientstruct.h
-- Each bone now has individual LineOfSightTo() check
-- Adaptive quality: High quality (≤18 players) vs Fast mode (>18 players)
-- High quality: 16 raycasts per player for accurate per-bone visibility
-- Fast mode: 1 raycast per player (head-based, 16× faster)
-- Prevents lag in crowded scenarios (final circles with 30-45 players)
-
-Smart Bone Aimbot:
-- Added GetHighestVisibleBone() helper function
-- Added HasAnyVisibleBone() helper function
-- Priority system: Head → Neck → Chest → Pelvis → Thighs → Calves → Feet
-- Automatically targets highest visible bone when behind cover
-- Filters out players with no visible bones in target selection
-- Works seamlessly with partial cover scenarios
-
-Performance Optimizations:
-- Removed duplicate GetHighestVisibleBone() call in ProcessAimbot()
-- Calculate bone position once, reuse for screen position and aiming
-- Adaptive ESP quality reduces raycasts from 720 to 45 in crowded scenarios
-- Total raycast reduction: 55% (1,237 → 551 raycasts per frame)
-- FPS improvement: +6-10 FPS in final circles with 45 players
-
-Documentation:
-- Added PER_BONE_VISIBILITY_IMPLEMENTATION.md
-- Added BONE_VISIBILITY_DIAGRAM.txt
-- Added SMART_BONE_AIMBOT.md
-- Added OPTIMIZATION_APPLIED.md
-- Added ADAPTIVE_BONE_VISIBILITY.md
-- Added IMPLEMENTATION_SUMMARY.md
-- Added FINAL_IMPLEMENTATION_SUMMARY.md
-
-Files Modified:
-- app/src/main/jni/Socket/clientstruct.h (added bone visibility flags)
-- app/src/main/jni/esp.cpp (adaptive bone visibility system)
-- app/src/main/jni/AimBot/Aimbot.h (smart bone targeting)
-- app/src/main/jni/Helper/functions.h (minor updates)
-
-Performance Impact:
-- Before: 1,237 raycasts/frame, ~7.5ms
-- After: 551 raycasts/frame, ~3.5ms
-- Savings: 686 raycasts (55% reduction), ~4.0ms per frame
+Commit SHA: 25daba6bf4ed663ca2708158f9d27a1beb946935
+Commit Message: Fix visibility logic inversion - LineOfSightTo returns true when occluded
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 13
+Workflow Run: 14
