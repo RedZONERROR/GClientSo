@@ -1,6 +1,17 @@
-Build Date: 2026-04-14 08:07:43 UTC
+Build Date: 2026-04-18 06:05:39 UTC
 Build Type: release
-Commit SHA: 8b84b3db6cd344d9351e2791900fed07098e07c0
-Commit Message: Move BUILD_INFO.txt to package directory
+Commit SHA: beb849a6adf00fb1d6bdc8abbfe2620eae7f15a7
+Commit Message: Fix skeleton drawing, comprehensive item system update, vehicle name function, and player status validation
+
+- Fixed skeleton bone names (Pelvis -> pelvis capitalization)
+- Updated skeleton drawing to use efficient array-based approach with 14 bone connections
+- Added 150+ items with correct IDs from Items.h (weapons, attachments, medical, ammo, backpacks, helmets, armor)
+- Fixed incorrect item ID ranges (backpacks, helmets, armor, medical, ammo)
+- Changed default item return from 'Item' to empty string
+- Added validation to skip items with itemId <= 0 or empty names
+- Implemented GetVehicleName() function using VehicleShapeType enum for 25+ vehicle types
+- Removed unreliable string parsing logic for vehicles
+- Added player status validation to skip negative state values
+- SDK files updated with line ending normalization
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 11
+Workflow Run: 12
