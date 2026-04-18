@@ -1,6 +1,6 @@
-Build Date: 2026-04-18 14:24:57 UTC
+Build Date: 2026-04-18 17:11:09 UTC
 Build Type: release
-Commit SHA: 25daba6bf4ed663ca2708158f9d27a1beb946935
-Commit Message: Fix visibility logic inversion - LineOfSightTo returns true when occluded
+Commit SHA: e596226d4ab7a68c8e7831f4c13905836bddc2b1
+Commit Message: Revert per-bone visibility system, fix xhook PAGE_SIZE for newer NDK, update Gradle/AGP
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 14
+Workflow Run: 15
