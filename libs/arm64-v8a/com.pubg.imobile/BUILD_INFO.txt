@@ -1,13 +1,16 @@
-Build Date: 2026-04-18 20:34:26 UTC
+Build Date: 2026-04-20 22:17:33 UTC
 Build Type: release
-Commit SHA: c1255e7f8312d8b87fbab62d13bac9e96a027797
-Commit Message: Add grenade/item state filtering and minimum distance checks
+Commit SHA: 859f9e0051bf716f39afd3c3e35b8d056b7de46e
+Commit Message: feat: Improve aimbot with distance check and smoother controller input
 
-- Skip exploded grenades (IsServerAlreadyExplodedCpp check)
-- Skip picked up items (bHasBeenPickedUp check)
-- Skip grenades being cooked (SpawnSeconds < 0)
-- Skip grenades at invalid world positions (0,0,0)
-- Add minimum distance filters: vehicles/items 1.5m, airdrops/deadboxes 2.0m
-- Prevents showing stale actors and reduces ESP clutter near player
+- Added distance check in GetTargetForAimBot using sock_aim_distance
+- Filters targets beyond configured distance (in meters)
+- Improves performance by skipping far targets early
+
+- Added +3 to sock_aim_smooth for controller input in Type 1
+- Makes controller input more subtle (sock_aim_smooth + 3)
+- Touch simulation data remains unchanged for overlay app
+
+Filter order: knocked -> distance -> visibility -> bot -> FOV
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 16
+Workflow Run: 17
