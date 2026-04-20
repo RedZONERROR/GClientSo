@@ -13,7 +13,8 @@ GClientSo is a lightweight repository for storing client-side shared object arti
 
 ## Getting Started
 
-This repository is primarily a binary artifact store rather than a source-based project. Use the included native libraries as needed in your client integration.
+This repository is primarily a binary artifact store rather than a source-based project. 
+Use the included native libraries as needed in your client integration.
 
 ## Build Metadata
 
