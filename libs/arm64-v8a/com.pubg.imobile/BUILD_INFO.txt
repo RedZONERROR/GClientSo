@@ -1,33 +1,14 @@
-Build Date: 2026-04-21 11:30:50 UTC
+Build Date: 2026-04-21 15:01:55 UTC
 Build Type: release
-Commit SHA: 0b775d260944aa0c87452c349f9aa5dbf24e31bb
-Commit Message: feat: Implement lock-free threaded aimbot (50Hz/10Hz)
+Commit SHA: 8d180d4197f43a10bb1b4c31ce0ed8db5f53f9c7
+Commit Message: feat: Add aim_crosshair targeting mode and revert to simple aimbot
 
-MAJOR PERFORMANCE UPGRADE:
-- Lock-free independent aimbot thread (zero mutex overhead)
-- Double buffering for safe data transfer between threads
-- 50Hz active mode (20ms sleep) - balanced performance
-- 10Hz fallback mode (100ms sleep) - minimal CPU when idle
-
-PERFORMANCE GAINS:
-- 30-40% faster overall (1-2ms saved per frame)
-- ESP and aimbot run in parallel (no blocking)
-- 58% less CPU usage vs 120Hz
-- 2.4x better battery life
-- Significantly reduced heat generation
-
-TECHNICAL DETAILS:
-- Atomic buffer swapping (lock-free communication)
-- Pointer validation before every access (crash-safe)
-- Graceful fallback when aimbot disabled
-- Thread-safe with zero synchronization overhead
-- All logs commented out for production
-
-CHANGES:
-- Added lock-free thread loop in Aimbot.h
-- Added StartAimbotThread/StopAimbotThread control functions
-- Modified esp.cpp to use GetAimbotResult (lock-free read)
-- Added Aimbot.h include in main.cpp
-- Thread starts automatically on initialization
+- Added aim_crosshair boolean to control targeting mode:
+  * false: Auto-find closest target in FOV (default)
+  * true: Aim at target under crosshair
+- Modified trigger logic: crosshair mode triggers when weapon equipped
+- Reverted from threaded to simple aimbot implementation for stability
+- Changed smooth factor from +5 to +3 for better responsiveness
+- Updated clientstruct.h, include.h, main.cpp with aim_crosshair support
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 19
+Workflow Run: 20
