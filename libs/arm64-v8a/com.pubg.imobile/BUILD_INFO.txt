@@ -1,16 +1,13 @@
-Build Date: 2026-04-20 22:17:33 UTC
+Build Date: 2026-04-21 09:14:36 UTC
 Build Type: release
-Commit SHA: 859f9e0051bf716f39afd3c3e35b8d056b7de46e
-Commit Message: feat: Improve aimbot with distance check and smoother controller input
+Commit SHA: d6c5764f4a17164fc3b57378ac4189592f6bec50
+Commit Message: feat: Add aim_crosshair targeting mode to client
 
-- Added distance check in GetTargetForAimBot using sock_aim_distance
-- Filters targets beyond configured distance (in meters)
-- Improves performance by skipping far targets early
-
-- Added +3 to sock_aim_smooth for controller input in Type 1
-- Makes controller input more subtle (sock_aim_smooth + 3)
-- Touch simulation data remains unchanged for overlay app
-
-Filter order: knocked -> distance -> visibility -> bot -> FOV
+- Added aim_crosshair field to clientstruct.h aim_settings
+- Added sock_aim_crosshair global variable in include.h
+- Read aim_crosshair from socket in main.cpp
+- Modified Aimbot.h trigger logic for crosshair mode
+- Crosshair mode: triggers when weapon equipped (no need for ADS/firing)
+- Auto-find mode: triggers only when firing or ADS (original behavior)
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 17
+Workflow Run: 18
