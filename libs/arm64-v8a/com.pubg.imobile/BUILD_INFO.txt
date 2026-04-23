@@ -1,34 +1,27 @@
-Build Date: 2026-04-23 20:59:43 UTC
+Build Date: 2026-04-23 21:35:52 UTC
 Build Type: release
-Commit SHA: 7b5498a1f8e19d388b9218baeeecc2d4a2f37f56
-Commit Message: Add ESP Type system with Hardened Mode and improved kill count extraction
+Commit SHA: a938535124a3a8dc000308a0ea6f5c9df20cb21e
+Commit Message: Fix Hardened Mode: Use GetAllActorsOfClass for players instead of GameState->PlayerArray
 
-Features:
-- Added esp_type variable (0=Standard, 1=Hardened BETA)
-- Standard Mode: Uses getActors() from PersistentLevel
-- Hardened Mode: Uses GameState->PlayerArray for players + GetAllActorsOfClass for entities
-- Created espx.cpp for Hardened Mode implementation
-- Updated Aimbot to use adaptive actor retrieval based on esp_type
+Issue: GameState->PlayerArray was not working for player detection
 
-Kill Count Improvements:
-- Multi-method approach for kill count extraction
-- METHOD 1: Read from AUAEPlayerState fields (Kills, RealPlayerKills+AIKills, KillsBeforeDie)
-- METHOD 2: Fallback to SyncOBDataActor->GetPlayerKillsByPlayerKey()
-- Applied to both esp.cpp and espx.cpp
+Solution:
+- Updated espx.cpp to use GetAllActorsOfClass<ASTExtraPlayerCharacter> for players
+- Updated Aimbot.h to use GetAllActorsOfClass for Hardened Mode consistency
+- Now ALL entity types in Hardened Mode use GetAllActorsOfClass:
+  * Players: GetAllActorsOfClass<ASTExtraPlayerCharacter>
+  * Vehicles: GetAllActorsOfClass<ASTExtraVehicleBase>
+  * Grenades: GetAllActorsOfClass<ASTExtraGrenadeBase>
+  * Airdrops: GetAllActorsOfClass<AAirDropBoxActor>
+  * Deadboxes: GetAllActorsOfClass<APickUpListWrapperActor>
+  * Items: GetAllActorsOfClass<APickUpWrapperActor>
 
-Aimbot Enhancements:
-- Crosshair mode visibility exception: disable visibility check for enemies under 15m
-- Adaptive actor retrieval: Standard uses GetAllActors, Hardened uses PlayerArray
+Changes:
+- espx.cpp: Replaced GameState->PlayerArray loop with GetAllActors<ASTExtraPlayerCharacter>
+- espx.cpp: Updated kill count extraction to get PlayerState from Player->Controller
+- espx.cpp: Updated header comment to reflect GetAllActorsOfClass for all entities
+- Aimbot.h: Replaced GameState->PlayerArray with GetAllActors for Hardened Mode
 
-Files Modified:
-- AimBot/Aimbot.h: Adaptive actor retrieval, crosshair visibility exception
-- esp.cpp: Improved kill count extraction
-- espx.cpp: NEW - Hardened Mode ESP implementation
-- main.cpp: Mode switching logic based on sock_esp_type
-- Android.mk: Added espx.cpp to build
-- Helper/include.h: Added sock_esp_type variable
-- Socket/clientstruct.h: Added esp_type to client struct
-
-Note: KD ratio from player profile is NOT available in real-time match data
+This makes Hardened Mode consistent - using GetAllActorsOfClass for everything
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 21
+Workflow Run: 22
