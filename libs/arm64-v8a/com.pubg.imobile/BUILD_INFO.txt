@@ -1,27 +1,6 @@
-Build Date: 2026-04-23 21:35:52 UTC
+Build Date: 2026-04-24 12:37:22 UTC
 Build Type: release
-Commit SHA: a938535124a3a8dc000308a0ea6f5c9df20cb21e
-Commit Message: Fix Hardened Mode: Use GetAllActorsOfClass for players instead of GameState->PlayerArray
-
-Issue: GameState->PlayerArray was not working for player detection
-
-Solution:
-- Updated espx.cpp to use GetAllActorsOfClass<ASTExtraPlayerCharacter> for players
-- Updated Aimbot.h to use GetAllActorsOfClass for Hardened Mode consistency
-- Now ALL entity types in Hardened Mode use GetAllActorsOfClass:
-  * Players: GetAllActorsOfClass<ASTExtraPlayerCharacter>
-  * Vehicles: GetAllActorsOfClass<ASTExtraVehicleBase>
-  * Grenades: GetAllActorsOfClass<ASTExtraGrenadeBase>
-  * Airdrops: GetAllActorsOfClass<AAirDropBoxActor>
-  * Deadboxes: GetAllActorsOfClass<APickUpListWrapperActor>
-  * Items: GetAllActorsOfClass<APickUpWrapperActor>
-
-Changes:
-- espx.cpp: Replaced GameState->PlayerArray loop with GetAllActors<ASTExtraPlayerCharacter>
-- espx.cpp: Updated kill count extraction to get PlayerState from Player->Controller
-- espx.cpp: Updated header comment to reflect GetAllActorsOfClass for all entities
-- Aimbot.h: Replaced GameState->PlayerArray with GetAllActors for Hardened Mode
-
-This makes Hardened Mode consistent - using GetAllActorsOfClass for everything
+Commit SHA: 172acda8350c2f0d238f809e8c49672afe8326f8
+Commit Message: STANDARD MODE: Use getActors() from PersistentLevel
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 22
+Workflow Run: 23
