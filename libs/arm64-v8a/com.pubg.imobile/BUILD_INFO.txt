@@ -1,6 +1,6 @@
-Build Date: 2026-04-24 12:37:22 UTC
+Build Date: 2026-04-28 14:38:26 UTC
 Build Type: release
-Commit SHA: 172acda8350c2f0d238f809e8c49672afe8326f8
-Commit Message: STANDARD MODE: Use getActors() from PersistentLevel
+Commit SHA: 3d60d9d9037f4b85b54aca4a4e59b73db5260262
+Commit Message: add logging
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 23
+Workflow Run: 24
