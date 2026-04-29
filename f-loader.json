@@ -1,0 +1,14 @@
+{
+  "name": "CheatLoader",
+  "packageName": "cheat.loader",
+  "version": "1.5.2",
+  "versionCode": 152,
+  "telegramUrl": "https://t.me/theredxstudio",
+  "updateUrl": "",
+  "changelog": [
+    "Multi-game support for BGMI, Global, Korea, Taiwan, Vietnam",
+    "Automatic game version detection",
+    "Improved ESP performance",
+    "Bug fixes and stability improvements"
+  ]
+}
