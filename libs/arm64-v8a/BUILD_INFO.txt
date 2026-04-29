@@ -1,0 +1,20 @@
+Build Date: 2026-04-29 15:52:39 UTC
+Build Type: release
+Commit SHA: 0ce60889423a0076c503c18fe1d111206a7e9210
+Commit Message: Unified library structure: Remove package-name-based deployment
+
+- Remove PACKAGE_NAME env variable from workflow
+- Deploy directly to libs/arm64-v8a/ instead of libs/arm64-v8a/{PACKAGE_NAME}/
+- Single unified library now supports all PUBG variants (BGMI, Global, Korea, Taiwan, Vietnam)
+- Dynamic offset initialization based on game type (0=BGMI, 1=Global, 2=Vietnam)
+- 80% storage reduction (12.5 MB -> 2.5 MB)
+- Faster CI/CD: 1 build instead of 5 separate builds
+- Updated commit messages and deployment summary
+
+Benefits:
+- Simpler deployment workflow
+- Reduced storage and bandwidth
+- Easier maintenance
+- Better scalability for new game variants
+Repository: RedZONERROR/GameClientSocket
+Workflow Run: 28
