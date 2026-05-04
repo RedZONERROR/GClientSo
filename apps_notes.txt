@@ -1,0 +1,7 @@
+if ("UNDETECTED".equals(cheat.getStatus())) {
+    statusColor = success_green;  // ✅
+} else if ("UPDATING".equals(cheat.getStatus())) {
+    statusColor = warning_orange;  // 🟠
+} else {
+    statusColor = error_red;  // ❌
+}
