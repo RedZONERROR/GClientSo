@@ -1,26 +1,6 @@
-Build Date: 2026-05-07 16:11:40 UTC
+Build Date: 2026-05-20 05:11:57 UTC
 Build Type: release
-Commit SHA: 6350b03b29a596d925d04ed1047654690f8c575f
-Commit Message: Refactor: Non-blocking SDK initialization with optimal threading
-
-- Moved SDK initialization (GNames, GUObjectArray) to separate pthread thread
-- Added thread-safe duplicate prevention using atomic exchange pattern
-- Removed blocking wait loop - now uses non-blocking check for sdk_init_completed
-- SDK thread only launches when ESP is enabled (after sock_esp_enable check)
-- First ESP request returns empty data, subsequent requests get full ESP data
-- Zero CPU overhead during SDK initialization (no busy-wait)
-- Improved user experience: no lag/stutter when enabling ESP
-
-Performance improvements:
-- 500ms faster first response (non-blocking)
-- 0% CPU usage during SDK init (removed busy-wait loop)
-- Smooth gameplay during SDK initialization
-- Thread auto-cleanup after completion (detached pthread)
-
-Technical details:
-- Uses pthread instead of std::thread for minimal overhead (~5μs vs ~10μs)
-- Atomic exchange pattern prevents race conditions (thread-safe)
-- SDK thread has zero persistence after completion (auto-destroyed)
-- Only 3 bytes permanent memory overhead (atomic flags)
+Commit SHA: dfdf404ca26916f98ec40c4c096f070be80b389b
+Commit Message: chore: update and regenerate native SDK headers and source files
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 29
+Workflow Run: 30
