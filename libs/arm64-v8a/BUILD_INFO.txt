@@ -1,6 +1,6 @@
-Build Date: 2026-05-20 05:11:57 UTC
+Build Date: 2026-05-20 06:12:30 UTC
 Build Type: release
-Commit SHA: dfdf404ca26916f98ec40c4c096f070be80b389b
-Commit Message: chore: update and regenerate native SDK headers and source files
+Commit SHA: 686e1a1c6c5cc117f0a5d61965be369ff031e373
+Commit Message: chore: sync and update PUBG Mobile SDK headers, classes, and function definitions
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 30
+Workflow Run: 31
