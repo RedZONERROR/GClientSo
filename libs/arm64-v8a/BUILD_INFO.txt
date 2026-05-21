@@ -1,6 +1,6 @@
-Build Date: 2026-05-20 06:35:58 UTC
+Build Date: 2026-05-21 13:59:29 UTC
 Build Type: release
-Commit SHA: fa61ec1d17a1124767091e01c684288026988146
-Commit Message: feat: generate new SDK header and source files for engine and project components
+Commit SHA: f16799ae7c54c384b65da8eea21ebaf3a8d6973b
+Commit Message: feat: add offsets.h with dynamic multi-game support for UE4 engine addresses
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 32
+Workflow Run: 33
