@@ -1,6 +1,6 @@
-Build Date: 2026-05-21 15:41:22 UTC
+Build Date: 2026-05-21 16:25:39 UTC
 Build Type: release
-Commit SHA: 58c6575daf4616641a5fabb16ced03987c2c1ac0
-Commit Message: feat: implement abstract domain socket client for game data transmission
+Commit SHA: 8c242c55c2d45c895f1fa0f1e2a27ff2fb533bd9
+Commit Message: feat: implement Unix domain socket client for JNI data transmission
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 35
+Workflow Run: 36
