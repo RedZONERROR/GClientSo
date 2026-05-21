@@ -1,6 +1,6 @@
-Build Date: 2026-05-21 14:18:57 UTC
+Build Date: 2026-05-21 15:41:22 UTC
 Build Type: release
-Commit SHA: 56b1decbe7d8c67835a4a97f83000178bfab5e91
-Commit Message: feat: implement base socket infrastructure and EGL screen dimension tracking for game client
+Commit SHA: 58c6575daf4616641a5fabb16ced03987c2c1ac0
+Commit Message: feat: implement abstract domain socket client for game data transmission
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 34
+Workflow Run: 35
