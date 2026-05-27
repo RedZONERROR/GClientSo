@@ -1,6 +1,6 @@
-Build Date: 2026-05-27 07:30:07 UTC
+Build Date: 2026-05-27 07:56:11 UTC
 Build Type: release
-Commit SHA: 650221aba83cd23014e8e48412d91e48b617df1d
-Commit Message: feat: implement thread-safe ESP worker and socket communication system with atomic state management and double-buffering
+Commit SHA: b5987644975a4784556053ea321854d8ac9efe24
+Commit Message: feat: implement stealthy ESP player tracking using GameState PlayerArray to bypass actor scanning
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 38
+Workflow Run: 39
