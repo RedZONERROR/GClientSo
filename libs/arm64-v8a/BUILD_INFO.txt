@@ -1,6 +1,6 @@
-Build Date: 2026-06-07 06:25:51 UTC
+Build Date: 2026-06-07 14:09:17 UTC
 Build Type: release
-Commit SHA: 8fd3057bfb05a574dd26750d3ce68bf02510afb6
-Commit Message: feat: implement adaptive ESP worker thread with self-unregistering EGL hook for stealth optimization
+Commit SHA: 9d476b57f47184455beb268b99415aa65788a2fd
+Commit Message: feat: implement thread-safe ESP worker and self-unregistering EGL hook for stealth optimization
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 41
+Workflow Run: 42
