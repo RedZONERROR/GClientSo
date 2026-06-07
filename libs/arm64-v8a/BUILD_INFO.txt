@@ -1,6 +1,6 @@
-Build Date: 2026-05-27 07:56:11 UTC
+Build Date: 2026-06-07 05:50:45 UTC
 Build Type: release
-Commit SHA: b5987644975a4784556053ea321854d8ac9efe24
-Commit Message: feat: implement stealthy ESP player tracking using GameState PlayerArray to bypass actor scanning
+Commit SHA: bc5085698ee285af5ab0997306c0bd7a14aa5ba2
+Commit Message: feat: implement ESP data collection and player entity tracking system for game client
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 39
+Workflow Run: 40
