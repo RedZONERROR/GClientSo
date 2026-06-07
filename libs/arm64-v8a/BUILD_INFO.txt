@@ -1,6 +1,6 @@
-Build Date: 2026-06-07 05:50:45 UTC
+Build Date: 2026-06-07 06:25:51 UTC
 Build Type: release
-Commit SHA: bc5085698ee285af5ab0997306c0bd7a14aa5ba2
-Commit Message: feat: implement ESP data collection and player entity tracking system for game client
+Commit SHA: 8fd3057bfb05a574dd26750d3ce68bf02510afb6
+Commit Message: feat: implement adaptive ESP worker thread with self-unregistering EGL hook for stealth optimization
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 40
+Workflow Run: 41
