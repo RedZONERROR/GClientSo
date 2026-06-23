@@ -1,6 +1,33 @@
-Build Date: 2026-06-10 10:30:59 UTC
+Build Date: 2026-06-23 07:31:39 UTC
 Build Type: release
-Commit SHA: 9d476b57f47184455beb268b99415aa65788a2fd
-Commit Message: feat: implement thread-safe ESP worker and self-unregistering EGL hook for stealth optimization
+Commit SHA: b8b414d1d40c07d74b27e4bdaa470ac406454d2b
+Commit Message: stealth: full anti-detect rewrite of Tools_Stealth + production flow restore
+
+Tools_Stealth.h / Tools_Stealth.cpp:
+- Remove /proc/self/maps dependency entirely; replace with dl_iterate_phdr()
+  which walks the dynamic linker in-memory link map (zero file I/O, zero fds)
+- Remove /dev/random pointer-validation trick (textbook ACE signature)
+- Remove all getpid() calls (PID managed externally via g_targetPid atomic)
+- Remove decoy reads (caused real SIGSEGV -> crash telemetry)
+- Remove dead APIs: StealthRead, StealthReadAddr, SetWriteable,
+  PerformDecoyReads, EnableDecoyReads, String2Offset, stealth_target_pid
+- Add stealth_basename() inline to avoid libc basename() PLT hook
+- Keep only the 4 functions actually used: GetBaseAddress, GetEndAddress,
+  GetRealOffsets, FindPattern
+- IsPtrValid is now pure arithmetic bounds check, zero syscall cost
+
+main.cpp:
+- Fix critical bug: g_ue4Ready was never set to true (ESP worker silently
+  skipped all SDK init and ESP collection forever)
+- Restore full production flow: Phase1 wait UE4, Phase2 set g_ue4Ready,
+  Phase3 connect socket, Phase4 launch worker threads
+- Remove dead test_extraction_thread
+- Remove orphaned PID wait loop in main_thread
+- Remove EnableDecoyReads call (deleted API)
+- Replace NULL with nullptr in pthread_create
+
+functions.h:
+- Simplify isObjectInvalid: remove duplicate bounds/alignment checks now
+  handled inside IsPtrValid
 Repository: RedZONERROR/GameClientSocket
-Workflow Run: 43
+Workflow Run: 44
